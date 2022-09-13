@@ -101,7 +101,7 @@ public class L2P1 {
         return odd;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice = 1;
         int m, n;
