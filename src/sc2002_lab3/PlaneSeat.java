@@ -1,7 +1,7 @@
 package sc2002_lab3;
 
 public class PlaneSeat {
-    private int seatId;
+    private final int seatId;
     private boolean assigned;
     private int customerId;
 
@@ -21,10 +21,6 @@ public class PlaneSeat {
 
     public boolean isOccupied() {
         return this.assigned;
-    }
-
-    public void setSeatId(int seatId) {
-        this.seatId = seatId;
     }
 
     public void assign(int customerId) {
