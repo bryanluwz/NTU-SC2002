@@ -24,7 +24,7 @@ public class PlaneApp {
         do {
             System.out.println("Enter the number of choice: ");
 
-            userChoice = scanner.nextInt();
+            userChoice = getInt(scanner, "Please enter a number >:(\nEnter the number of choice: ");
 
             switch (userChoice) {
                 case 1 -> plane.showNumEmptySeats();
@@ -34,27 +34,15 @@ public class PlaneApp {
                 case 5 -> {
                     System.out.println("Assigning seat...");
                     System.out.println("Enter seat ID: ");
-                    if (!scanner.hasNextInt()) {
-                        System.out.println("Invalid input! :<");
-                        break;
-                    }
-                    seatId = scanner.nextInt();
+                    seatId = getInt(scanner, "Please enter a number >:(\nEnter seat ID:");
                     System.out.println("Enter customer ID: ");
-                    if (!scanner.hasNextInt()) {
-                        System.out.println("Invalid input! :<");
-                        break;
-                    }
-                    customerId = scanner.nextInt();
+                    customerId = getInt(scanner, "Please enter a number >:(\nEnter customer ID:");
                     plane.assignSeat(seatId, customerId);
                 }
                 case 6 -> {
                     System.out.println("Unassigning seat...");
                     System.out.println("Enter seat ID: ");
-                    if (!scanner.hasNextInt()) {
-                        System.out.println("Invalid input! :<");
-                        break;
-                    }
-                    seatId = scanner.nextInt();
+                    seatId = getInt(scanner, "Please enter a number >:(\nEnter seat ID:");
                     plane.unAssignSeat(seatId);
                 }
                 case 7 -> System.out.println("Bye bye...");
@@ -70,6 +58,18 @@ public class PlaneApp {
                 }
             }
         } while (userChoice != 7);
+    }
+
+    public static int getInt(Scanner sc, String errorMessage) {
+        while (true) {
+            try {
+                return sc.nextInt();
+            }
+            catch (Exception e) {
+                System.out.println(errorMessage);
+                sc.next();
+            }
+        }
     }
 }
 
