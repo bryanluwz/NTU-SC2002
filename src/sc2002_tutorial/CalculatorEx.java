@@ -38,6 +38,8 @@ public class CalculatorEx {
             } catch (UnknownOperatorException e) {
                 System.out.println(e.getMessage());
                 this.handleUnknownOpException();
+            } catch (ArithmeticException e) {
+                System.out.println("No dividing with zero.");
             } catch (Exception e) {
                 System.out.println("IDK what happened");
             } finally {
@@ -49,14 +51,21 @@ public class CalculatorEx {
 
     }
 
-    public double evaluate(char op, double n1, double n2) throws UnknownOperatorException {
-        return switch (op) {
-            case '+' -> n1 + n2;
-            case '-' -> n1 - n2;
-            case '*' -> n1 * n2;
-            case '/' -> n1 / n2;
+    public double evaluate(char op, double n1, double n2) throws UnknownOperatorException, ArithmeticException {
+        double result;
+        switch (op) {
+            case '+' -> result = n1 + n2;
+            case '-' -> result = n1 - n2;
+            case '*' -> result = n1 * n2;
+            case '/' -> {
+                if (n2 == 0) {
+                    throw new ArithmeticException();
+                }
+                result = n1 / n2;
+            }
             default -> throw new UnknownOperatorException(op);
-        };
+        }
+        return result;
     }
 
     public void handleUnknownOpException() {

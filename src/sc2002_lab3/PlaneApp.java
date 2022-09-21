@@ -12,7 +12,7 @@ public class PlaneApp {
 
         Plane plane = new Plane(NUM_SEATS);
 
-        System.out.println("Hello welcome to Cheap Airlines");
+        System.out.println("Hello! Welcome to Cheap Airlines");
         System.out.println("1. Show number of empty seats");
         System.out.println("2. Show the list of empty seats");
         System.out.println("3. Show the list of seat assignments by seat ID");
@@ -24,7 +24,7 @@ public class PlaneApp {
         do {
             System.out.println("Enter the number of choice: ");
 
-            userChoice = getInt(scanner, "Please enter a number >:(\nEnter the number of choice: ");
+            userChoice = getIntFromUser(scanner, "Please enter a number >:(\nEnter the number of choice: ");
 
             switch (userChoice) {
                 case 1 -> plane.showNumEmptySeats();
@@ -34,18 +34,18 @@ public class PlaneApp {
                 case 5 -> {
                     System.out.println("Assigning seat...");
                     System.out.println("Enter seat ID: ");
-                    seatId = getInt(scanner, "Please enter a number >:(\nEnter seat ID:");
+                    seatId = getIntFromUser(scanner, "Please enter a number >:(\nEnter seat ID:");
                     System.out.println("Enter customer ID: ");
-                    customerId = getInt(scanner, "Please enter a number >:(\nEnter customer ID:");
+                    customerId = getIntFromUser(scanner, "Please enter a number >:(\nEnter customer ID:");
                     plane.assignSeat(seatId, customerId);
                 }
                 case 6 -> {
-                    System.out.println("Unassigning seat...");
+                    System.out.println("Un-assigning seat...");
                     System.out.println("Enter seat ID: ");
-                    seatId = getInt(scanner, "Please enter a number >:(\nEnter seat ID:");
+                    seatId = getIntFromUser(scanner, "Please enter a number >:(\nEnter seat ID:");
                     plane.unAssignSeat(seatId);
                 }
-                case 7 -> System.out.println("Bye bye...");
+                case 7 -> System.out.println("Bye bye... Thanks for flying with Cheap Airlines :D");
                 default -> {
                     System.out.println("\n");
                     System.out.println("1. Show number of empty seats");
@@ -60,7 +60,7 @@ public class PlaneApp {
         } while (userChoice != 7);
     }
 
-    public static int getInt(Scanner sc, String errorMessage) {
+    public static int getIntFromUser(Scanner sc, String errorMessage) {
         while (true) {
             try {
                 return sc.nextInt();
