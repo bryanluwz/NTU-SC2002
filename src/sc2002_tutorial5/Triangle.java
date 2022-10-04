@@ -6,7 +6,6 @@ public class Triangle extends Polygon {
         super.setPolytype(KindOfPolygon.POLY_TRIANG);
     }
 
-//    @Override
     public float calArea() {
         return this.width * this.height / 2;
     }

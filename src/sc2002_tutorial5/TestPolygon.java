@@ -2,11 +2,11 @@ package sc2002_tutorial5;
 
 public class TestPolygon {
     public static void printArea(Rectangle r) {
-        System.out.println("Area of rectangle: " + r.calArea());
+        System.out.println("Area of " + r.getPolytype() + ": " + r.calArea());
     }
 
     public static void printArea(Triangle t) {
-        System.out.println("Area of triangle: " + t.calArea());
+        System.out.println("Area of " + t.getPolytype() + ": " + t.calArea());
     }
 
     public static void main(String[] args) {

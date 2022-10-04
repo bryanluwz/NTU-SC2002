@@ -6,7 +6,6 @@ public class Rectangle extends Polygon {
         super.setPolytype(KindOfPolygon.POLY_RECT);
     }
 
-//    @Override
     public float calArea() {
         return this.width * this.height;
     }
