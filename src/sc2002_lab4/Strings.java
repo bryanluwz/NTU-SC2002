@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Strings {
     public static void main(String[] args) {
         String[] stringList;
+        String[] stringListCopy;
         int size;
 
         Scanner scan = new Scanner(System.in);
@@ -18,11 +19,25 @@ public class Strings {
         for (int i = 0; i < size; i++)
             stringList[i] = scan.next();
 
+        stringListCopy = stringList.clone();
+
         Sorting.insertionSort(stringList);
-        System.out.println("\nYour strings in sorted order...");
+        System.out.println("\nInsertion sort (descending): ");
 
         for (int i = 0; i < size; i++)
             System.out.print(stringList[i] + " ");
         System.out.println();
+
+        Sorting.selectionSort(stringListCopy);
+        System.out.println("\nSelection sort (ascending): ");
+
+        for (int i = 0; i < size; i++)
+            System.out.print(stringListCopy[i] + " ");
+        System.out.println();
     }
 }
+
+/*
+ * Testing conditions
+ * 5 123 321 abc abcd dcba
+ * */

@@ -36,14 +36,40 @@ public class SalePerson implements Comparable {
         SalePerson sp = (SalePerson) obj;
         if (this.getTotalSales() < sp.getTotalSales()) {
             return -1;
-        }
-        else if (this.getTotalSales() > sp.getTotalSales()) {
+        } else if (this.getTotalSales() > sp.getTotalSales()) {
             return 1;
-        }
-        else {
-            return this.getLastName().compareTo(sp.getLastName());
+        } else if (this.getLastName().compareTo(sp.getLastName()) < 0) {
+            return -1;
+        } else if (this.getLastName().compareTo(sp.getLastName()) > 0) {
+            return 1;
+        } else {
+            return this.getFirstName().compareTo(sp.getFirstName());
         }
     }
+
+//        if want to arrange via last name first name
+   /* @Override
+    public int compareTo(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) return -1;
+        SalePerson sp = (SalePerson) obj;
+
+        if (this.getLastName().compareTo(sp.getLastName()) < 0) {
+            return -1;
+        } else if (this.getLastName().compareTo(sp.getLastName()) > 0) {
+            return 1;
+        } else if (this.getFirstName().compareTo(sp.getFirstName()) < 0) {
+            return -1;
+        } else if (this.getFirstName().compareTo(sp.getFirstName()) > 0) {
+            return 1;
+        } else if (this.getTotalSales() < sp.getTotalSales()) {
+            return -1;
+        } else if (this.getTotalSales() > sp.getTotalSales()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }*/
+
 
     public String getFirstName() {
         return firstName;

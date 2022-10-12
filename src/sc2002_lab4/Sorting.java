@@ -26,16 +26,18 @@ public class Sorting {
     // sort algorithm. <Changed to descending order>
     //-----------------------------------------------------------------
     public static void insertionSort(Comparable[] list) {
-//        for (int index = 1; index < list.length; index++) {
-//            Comparable key = list[index];
-//            int position = index;
-//            // Shift larger values to the left
-//            while (position > 0 && key.compareTo(list[position - 1]) < 0) {
-//                list[position] = list[position - 1];
-//                position--;
-//            }
-//            list[position] = key;
-//        }
+        /* This is for ascending order
+        for (int index = 1; index < list.length; index++) {
+            Comparable key = list[index];
+            int position = index;
+            // Shift larger values to the left
+            while (position > 0 && key.compareTo(list[position - 1]) < 0) {
+                list[position] = list[position - 1];
+                position--;
+            }
+            list[position] = key;
+        }
+        */
         for (int index = list.length - 2; index >= 0; index--) {
             Comparable key = list[index];
             int position = index;
@@ -48,4 +50,3 @@ public class Sorting {
         }
     }
 }
-// 10 1 2 3 4 5 6 7 8 9 10
