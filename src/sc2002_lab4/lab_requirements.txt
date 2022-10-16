@@ -1,0 +1,14 @@
+3.1 Polymorphic Sorting
+
+1. Fix the error in the original file
+2. Test the function of String.java, e.g., sort 5 strings '123', '321' 'abc', 'abcd', 'dcba'
+3. Test the descending order version of insertionSort and selectionSort algorithm
+4. Run WeeklySales.java in any order of sales, and in ascending alphabetical order
+
+3.2 Calculate Surface Area of a Figure
+
+1. Calculate 2-D area: Circle (radius=10, area=314.xxx), Triangle(h=25, b=20, area=250), Rectangle(l=50, b=20, area=1000).
+2. Calculate 3-D surface area: Sphere (radius=10, area=1256.xxx), Regular Tetrahedron(a=10, area=√3a^2), Cube (a=10, area=6a^2)
+3. Calculate surface area: Cone(r=10, l=10, area=πr²+πrl), Cylinder (r=10, h=5, area=2πr²+2πrh)
+
+You can follow the above test cases when showing your work.
