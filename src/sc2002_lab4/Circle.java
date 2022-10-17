@@ -19,4 +19,9 @@ public class Circle implements Shape2D {
     public float calArea() {
         return this.radius * this.radius * (float) Math.PI;
     }
+
+    @Override
+    public void printArea() {
+        System.out.printf("Circle of radius %.2f has an area of %.3f\n", this.getRadius(), this.calArea());
+    }
 }

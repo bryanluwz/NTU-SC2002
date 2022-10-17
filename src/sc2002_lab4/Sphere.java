@@ -1,6 +1,6 @@
 package sc2002_lab4;
 
-public class Sphere extends Circle implements Shape3D {
+public class Sphere extends Circle {
     public Sphere(float radius) {
         super(radius);
     }
@@ -11,7 +11,7 @@ public class Sphere extends Circle implements Shape3D {
     }
 
     @Override
-    public float calVolume() {
-        return (float)(4.0 / 3.0 * Math.PI * this.getRadius() * this.getRadius() * this.getRadius());
+    public void printArea() {
+        System.out.printf("Sphere of radius %.2f has an area of %.3f\n", this.getRadius(), this.calArea());
     }
 }

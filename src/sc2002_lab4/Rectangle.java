@@ -29,4 +29,9 @@ public class Rectangle implements Shape2D {
     public float calArea() {
         return this.getBreadth() * this.getLength();
     }
+
+    @Override
+    public void printArea() {
+        System.out.printf("Rectangle of length %.2f and breadth %.2f has an area of %.3f\n", this.getLength(), this.getBreadth(), this.calArea());
+    }
 }

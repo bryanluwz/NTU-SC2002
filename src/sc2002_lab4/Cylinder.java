@@ -20,4 +20,9 @@ public class Cylinder extends Circle{
     public float calArea() {
         return super.calArea() * 2 + 2 * (float) Math.PI * this.getRadius() * this.getHeight();
     }
+
+    @Override
+    public void printArea() {
+        System.out.printf("Cylinder of radius %.2f and height %.2f has an area of %.3f\n", this.getRadius(), this.getHeight(), this.calArea());
+    }
 }

@@ -7,14 +7,8 @@ public class Shape2DApp {
         Triangle triangle = new Triangle(25, 20);
         Rectangle rectangle = new Rectangle(50, 20);
 
-        float circleArea = circle.calArea();
-        float triangleArea = triangle.calArea();
-        float rectangleArea = rectangle.calArea();
-        float totalArea = circleArea + triangleArea + rectangleArea;
-
-        System.out.println("Area of circle\t\t: " + circleArea);
-        System.out.println("Area of triangle\t: " + triangleArea);
-        System.out.println("Area of rectangle\t: " + rectangleArea);
-        System.out.println("Area of all shapes\t: " + totalArea);
+        circle.printArea();
+        triangle.printArea();
+        rectangle.printArea();
     }
 }

@@ -1,6 +1,6 @@
 package sc2002_lab4;
 
-public class Pyramid extends Triangle implements Shape3D {
+public class Pyramid extends Triangle {
     public Pyramid(float height, float base) {
         super(height, base);
     }
@@ -11,7 +11,7 @@ public class Pyramid extends Triangle implements Shape3D {
     }
 
     @Override
-    public float calVolume() {
-        return this.getBase() * this.getBase() * this.getHeight() / 3;
+    public void printArea() {
+        System.out.printf("Pyramid of base %.2f and height %.2f has an area of %.3f\n", this.getBase(), this.getHeight(), this.calArea());
     }
 }

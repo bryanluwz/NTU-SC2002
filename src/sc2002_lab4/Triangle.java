@@ -29,4 +29,9 @@ public class Triangle implements Shape2D {
     public float calArea() {
         return this.getBase() * this.getHeight() / 2;
     }
+
+    @Override
+    public void printArea() {
+        System.out.printf("Triangle of height %.2f and base %.2f has an area of %.3f\n", this.getHeight(), this.getBase(), this.calArea());
+    }
 }

@@ -1,6 +1,6 @@
 package sc2002_lab4;
 
-public class Cuboid extends Rectangle implements Shape3D {
+public class Cuboid extends Rectangle {
     private float height;
 
     public Cuboid(float length, float breadth, float height) {
@@ -22,7 +22,7 @@ public class Cuboid extends Rectangle implements Shape3D {
     }
 
     @Override
-    public float calVolume() {
-        return this.getLength() * this.getBreadth() * this.getHeight();
+    public void printArea() {
+        System.out.printf("Cuboid of length %.2f, breadth %.2f and height %.2f has an area of %.3f\n", this.getLength(), this.getBreadth(), this.getHeight(), this.calArea());
     }
 }
