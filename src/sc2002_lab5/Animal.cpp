@@ -1,120 +1,179 @@
+#ifndef CHILDANIMAL_H
+#define _H
+#include "childAnimal.h"
+#endif
+
 #include <iostream>
 #include <string>
 using namespace std;
 
-enum COLOR
+COLOR getColorFromUser()
 {
-    Green,
-    Blue,
-    White,
-    Black,
-    Brown
-};
+    int colorChoice;
+    COLOR color;
 
-/*
-Animal class
-*/
-class Animal
+    do
+    {
+        cout << "Please choose a colour for the dog:" << endl;
+        cout << "1. Green" << endl;
+        cout << "2. Blue" << endl;
+        cout << "3. White" << endl;
+        cout << "4. Black" << endl;
+        cout << "5. Brown" << endl;
+
+        cin >> colorChoice;
+
+        switch (colorChoice)
+        {
+        case 1:
+            color = COLOR::Green;
+            break;
+        case 2:
+            color = COLOR::Blue;
+            break;
+        case 3:
+            color = COLOR::White;
+            break;
+        case 4:
+            color = COLOR::Black;
+            break;
+        case 5:
+            color = COLOR::Brown;
+            break;
+        default:
+            cout << "Oops that is not an option :(" << endl
+                 << endl;
+            break;
+        }
+    } while (!(0 < colorChoice && colorChoice < 6));
+
+    return color;
+}
+
+void printMenu()
 {
-public:
-    Animal() : _name("unknown")
-    {
-        cout << "Constructing Animal object " << _name << endl;
-    }
-
-    Animal(const string n, const COLOR c) : _name(n), _color(c)
-    {
-        cout << "Constructing Animal object " << _name << " " << _color << endl;
-    }
-
-    ~Animal()
-    {
-        cout << "Destructing Animal object " << _name << endl;
-    }
-    virtual void speak() const {}
-    virtual void move() const = 0;
-
-private:
-    string _name;
-    COLOR _color;
-};
-
-/*
-Mammal class
-*/
-class Mammal : public Animal
-{
-public:
-    Mammal(string name, COLOR color) : Animal(name, color) {}
-    ~Mammal() {}
-
-    void eat() const
-    {
-        cout << "Mammal eat " << endl;
-    }
-
-    void move() const
-    {
-        cout << "Mammal move" << endl;
-    }
-};
-
-/*
-Dog class
-*/
-class Dog : public Mammal
-{
-private:
-    string _owner;
-
-public:
-    Dog(string name, COLOR color, string owner) : Mammal(name, color), _owner(owner) {}
-
-    void speak() const
-    {
-        cout << "Woof" << endl;
-    }
-
-    void move() const
-    {
-        cout << "Dog move" << endl;
-    }
-};
+    cout << "\nSelect an animal to send to the Zoo:" << endl;
+    cout << "(1) Dog" << endl;
+    cout << "(2) Cat" << endl;
+    cout << "(3) Lion" << endl;
+    cout << "(4) Move all animals" << endl;
+    cout << "(5) Quit" << endl;
+}
 
 int main()
 {
-    // Part 1
-    /*
-    // Animal object
-    // Animal animal("Animal", COLOR::Green);
-    // animal.speak();
+    // Initialise array for Mammals that are selected to go to the zoo
+    // and also other pointers
+    Mammal *mammalPtr[3] = {NULL, NULL, NULL};
+    Dog *dogPtr;
+    Cat *catPtr;
+    Lion *lionPtr;
 
-    // system("PAUSE");
+    // Welcome message
+    cout << "Welcome user! We will make a dog, a cat and a lion." << endl;
 
-    // Mammal object
-    Mammal mammal("Mammal", COLOR::Brown);
-    // mammal.speak();
-    mammal.eat();
-    mammal.move();
+    // Initialise dog, cat and lion with user inputs
+    string name, owner;
+    COLOR color;
 
-    system("PAUSE");
+    // Dog
+    cout << "Please input the name of the dog: ";
+    cin >> name;
 
-    // Dog object
-    Dog dog("Dog", COLOR::Brown, "Bob");
-    dog.speak();
-    dog.eat();
-    dog.move();
+    color = getColorFromUser();
 
-    system("PAUSE");
+    cout << "Please input the owner of the dog: ";
+    cin >> owner;
 
-    cout << "Program exiting .... " << endl;
-    */
+    dogPtr = new Dog(name, color, owner);
 
-    Animal *animalPtr = new Dog("Lassie", COLOR::White, "Andy");
-    animalPtr->speak();
-    animalPtr->move();
+    // Cat
+    cout << "Please input the name of the cat: ";
+    cin >> name;
 
-    animalPtr->~Animal();
+    color = getColorFromUser();
+
+    cout << "Please input the owner of the cat: ";
+    cin >> owner;
+
+    catPtr = new Cat(name, color, owner);
+
+    // Lion
+    cout << "Please input the name of the lion: ";
+    cin >> name;
+
+    color = getColorFromUser();
+
+    cout << "Please input the owner of the lion: ";
+    cin >> owner;
+
+    lionPtr = new Lion(name, color, owner);
+
+    // Main menu for user
+    int userChoice;
+    do
+    {
+        printMenu();
+
+        cin >> userChoice;
+
+        switch (userChoice)
+        {
+        case 1:
+            mammalPtr[0] = dogPtr;
+            cout << "Selected Dog to move to the zoo" << endl;
+            break;
+
+        case 2:
+            mammalPtr[1] = catPtr;
+            cout << "Selected Cat to move to the zoo" << endl;
+            break;
+
+        case 3:
+            mammalPtr[2] = lionPtr;
+            cout << "Selected Lion to move to the zoo" << endl;
+            break;
+
+        case 4:
+            cout << "Moving all animals...\n" << endl;
+            for (size_t i = 0; i < 3; i++)
+            {
+                if (mammalPtr[i] != NULL)
+                {
+                    mammalPtr[i]->move();
+                    mammalPtr[i]->speak();
+                    mammalPtr[i]->eat();
+                    cout << endl;
+                }
+            }
+            break;
+
+        default:
+            cout << "Invalid choice! :3" << endl;
+            break;
+        }
+    } while (userChoice != 5);
+
+    // Destruction
+    dogPtr->~Dog();
+    catPtr->~Cat();
+    lionPtr->~Lion();
+
+    cout << "Bye Bye! :3" << endl;
 
     return 0;
 }
+
+/*
+Inputs for the animals thing
+Doggo
+1
+Caesar
+Oyen
+4
+Bobby
+Lyon
+2
+NTU
+
+*/

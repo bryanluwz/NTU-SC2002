@@ -1,7 +1,8 @@
 {
     "files.associations": {
-        "system_error": "cpp",
-        "xlocale": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "string": "cpp",
         "xstring": "cpp"
     }
 }
