@@ -14,7 +14,7 @@ COLOR getColorFromUser()
 
     do
     {
-        cout << "Please choose a colour for the dog:" << endl;
+        cout << "Please choose a colour:" << endl;
         cout << "1. Green" << endl;
         cout << "2. Blue" << endl;
         cout << "3. White" << endl;
@@ -135,7 +135,8 @@ int main()
             break;
 
         case 4:
-            cout << "Moving all animals...\n" << endl;
+            cout << "Moving all animals...\n"
+                 << endl;
             for (size_t i = 0; i < 3; i++)
             {
                 if (mammalPtr[i] != NULL)
@@ -146,6 +147,9 @@ int main()
                     cout << endl;
                 }
             }
+            break;
+
+        case 5:
             break;
 
         default:
