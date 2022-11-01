@@ -46,7 +46,8 @@ COLOR getColorFromUser()
             break;
         }
     } while (!(0 < colorChoice && colorChoice < 6));
-
+    
+    cin.ignore();
     return color;
 }
 
@@ -78,34 +79,34 @@ int main()
 
     // Dog
     cout << "Please input the name of the dog: ";
-    cin >> name;
+    getline(cin, name);
 
     color = getColorFromUser();
 
     cout << "Please input the owner of the dog: ";
-    cin >> owner;
+    getline(cin, owner);
 
     dogPtr = new Dog(name, color, owner);
 
     // Cat
     cout << "Please input the name of the cat: ";
-    cin >> name;
+    getline(cin, name);
 
     color = getColorFromUser();
 
     cout << "Please input the owner of the cat: ";
-    cin >> owner;
+    getline(cin, owner);
 
     catPtr = new Cat(name, color, owner);
 
     // Lion
     cout << "Please input the name of the lion: ";
-    cin >> name;
+    getline(cin, name);
 
     color = getColorFromUser();
 
     cout << "Please input the owner of the lion: ";
-    cin >> owner;
+    getline(cin, owner);
 
     lionPtr = new Lion(name, color, owner);
 
